@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11844,13 +11844,23 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given there is relation between the two samples, the difference between samples is going to be the focus of the analysis. The chonsen descriptive statistics will descrive such difference.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;stroopdata.csv&quot;</span><span class="p">)</span>
-<span class="n">cd</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">cd</span><span class="p">[</span><span class="s2">&quot;diff&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">cd</span><span class="p">[</span><span class="s2">&quot;Congruent&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cd</span><span class="p">[</span><span class="s2">&quot;Incongruent&quot;</span><span class="p">]</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11863,7 +11873,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -11888,6 +11898,95 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
       <th></th>
       <th>Congruent</th>
       <th>Incongruent</th>
+      <th>diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12.079</td>
+      <td>19.278</td>
+      <td>-7.199</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>16.791</td>
+      <td>18.741</td>
+      <td>-1.950</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9.564</td>
+      <td>21.214</td>
+      <td>-11.650</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.630</td>
+      <td>15.687</td>
+      <td>-7.057</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>14.669</td>
+      <td>22.803</td>
+      <td>-8.134</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Congruent</th>
+      <th>Incongruent</th>
+      <th>diff</th>
     </tr>
   </thead>
   <tbody>
@@ -11895,41 +11994,49 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
       <th>count</th>
       <td>24.000000</td>
       <td>24.000000</td>
+      <td>24.000000</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>14.051125</td>
       <td>22.015917</td>
+      <td>-7.964792</td>
     </tr>
     <tr>
       <th>std</th>
       <td>3.559358</td>
       <td>4.797057</td>
+      <td>4.864827</td>
     </tr>
     <tr>
       <th>min</th>
       <td>8.630000</td>
       <td>15.687000</td>
+      <td>-21.919000</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>11.895250</td>
       <td>18.716750</td>
+      <td>-10.258500</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>14.356500</td>
       <td>21.017500</td>
+      <td>-7.666500</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>16.200750</td>
       <td>24.051500</td>
+      <td>-3.645500</td>
     </tr>
     <tr>
       <th>max</th>
       <td>22.328000</td>
       <td>35.255000</td>
+      <td>-1.950000</td>
     </tr>
   </tbody>
 </table>
@@ -11946,30 +12053,24 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <strong>mean</strong> is:</p>
+<p>The <strong>mean</strong> of the <strong>Difference</strong> (<em>Cong -  Incong</em>) is:</p>
 <ul>
-<li><strong>Congruent</strong>: $ mean = 14.05$</li>
-<li><strong>Incongruent</strong>: $ mean = 22.01$</li>
+<li>$ mean = -7.96$</li>
 </ul>
-<p>The Incongruent results have a median almost 8 seconds higher than the Congruent results</p>
-<p>The <strong>median</strong> is:</p>
+<p>The <strong>median</strong> of the <strong>Difference</strong> (<em>Cong -  Incong</em>) is:</p>
 <ul>
-<li><strong>Congruent</strong>: $ Q_2 = 14.36$</li>
-<li><strong>Incongruent</strong>: $ Q_2 = 21.018$</li>
+<li>$ Q_2 = -7.67$</li>
 </ul>
-<p>The Incongruent results have a median almost 7 seconds higher than the Congruent results</p>
-<p>The <strong>inter quuartile range</strong> is:</p>
+<p>The difference between the median and the mean is rather small.</p>
+<p>The <strong>inter quuartile range</strong> of the <strong>Difference</strong> (<em>Cong -  Incong</em>) is:</p>
 <ul>
-<li><strong>Congruent</strong>: $ Q_3 - Q_1 = 4.3$</li>
-<li><strong>Incongruent</strong>: $ Q_3 - Q_1 = 5.35$</li>
+<li>$ Q_3 - Q_1 = 6.61$</li>
 </ul>
-<p>For the Congruent results, 50% of the values in the middle are within a smaller range (4.3) than for Incongruent resuls (5.35)</p>
-<p>The <strong>standard deviation</strong> is:</p>
+<p>the difference for 50% of the values are lies within a range of 6.61s</p>
+<p>The <strong>standard deviation</strong> of the <strong>Difference</strong> (<em>Cong -  Incong</em>) is:</p>
 <ul>
-<li><strong>Congruent</strong>: $ std = 3.56$</li>
-<li><strong>Incongruent</strong>: $ std = 4.8$</li>
+<li>$ std = 4.86$</li>
 </ul>
-<p>The standard deviation also indicates that the values for the Incongruent results are more spread than for the the Congruent results.</p>
 
 </div>
 </div>
@@ -11985,7 +12086,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">7.5</span><span class="p">))</span>
@@ -12024,7 +12125,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">7.5</span><span class="p">))</span>
@@ -12070,6 +12171,54 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">7.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cd</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cd</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are two outliers at -21.9 and -17.1. The rest of the values are within a range from -11.802 to -1.95. The histogram has a particular distribution, having max values at the extremes of such range of values, and a minimun in the middle</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12090,7 +12239,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
@@ -12103,7 +12252,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">st</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">cd</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -12119,7 +12268,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[30]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -12164,7 +12313,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">-</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -12182,7 +12331,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12208,7 +12357,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cd</span><span class="p">))</span>
@@ -12225,7 +12374,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[31]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -12251,7 +12400,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">d</span><span class="o">/</span><span class="n">se</span>
@@ -12268,7 +12417,7 @@ If this hypothesis is proven wrong, then the alternative hypothesis would be tru
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[29]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
